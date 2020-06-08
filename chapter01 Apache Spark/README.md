@@ -5,5 +5,5 @@
 > 스파크는 가장 활발하게 개발되고 있는 병렬 처리 오픈소스 엔진이며 빅데이터에 관심 있는 여러 개발자와 데이터 과학자에게 표준 도구가 되어가고 있다.     
 > 스파크는 단일 노트북 환경에서부터 수천 대의 서버로 구성된 클러스터까지 다양한 환경에서 실행될 수 있다. 이런 특성을 활용해 빅데이터를 처리를 쉽게 시작할 수 있고 엄청난 규모의 클러스터로 확장해나갈 수 있다.     
 
-<img src='https://m.media-amazon.com/images/S/aplus-media/vc/e6e4e247-7bf5-4090-9156-7a01aedd6acd.png' height="300px" width="450px" title="스파크 기능구성"><br size="2">스파크 기능 구성</br></img>
+<img src='https://m.media-amazon.com/images/S/aplus-media/vc/e6e4e247-7bf5-4090-9156-7a01aedd6acd.png' height="300px" width="450px" title="스파크 기능구성"><figcaption>스파크 기능 구성</figcaption></img>
 
