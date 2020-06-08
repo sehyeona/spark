@@ -9,7 +9,8 @@
   <img src='https://m.media-amazon.com/images/S/aplus-media/vc/e6e4e247-7bf5-4090-9156-7a01aedd6acd.png' height="300px" width="450px" title="스파크 기능구성"/>
   <figcaption>[그림1] 스파크 기능 구성</figcaption>
 </figure>
-***   
+***    
+
 ### 1.1 아파치 스파크의 철학
 아파치 스파크란 *'빅데이터를 위한 통합 컴퓨팅 엔진과 리이브러리 집합'* 이다. 
 #### 통합
