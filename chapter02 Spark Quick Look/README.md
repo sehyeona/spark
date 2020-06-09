@@ -36,9 +36,9 @@
  ### 2.5 SparkSession
  > 스파크 애플리케이션은 SparkSession(SparkContext)이라 불리는 드라이버 프로세스로 제어한다. 
  >  > SparkSession 인스턴스는 사용자가 정의한 처리 명령을 클러스터에서 실행한다. 
- '''
+```
  pyspark
- '''
+```
  - - -
  ### 2.6 DataFrame
  > DataFrame은 가장 대표적인 구조적 API로서, 테이블의 데이터를 로우와 컬럼으로 단순하게 표현.
@@ -53,10 +53,10 @@
  ### 2.7 트랜스포메이션
  > 스파크의 핵심 데이터 구조는 *불변성*을 가진다.   
  > 그렇다면 어떻게 사용? DataFrame의 변경을 원한다면 *transformation* 시켜 주어야함.      
- '''
+```
  myRange = spark.range(1000).toDF("number")
  divisBy2 = myRange.where("number % 2 = 0 ")
- '''
+```
  위의 코드를 실행 시켜도 결과가 출력되지 않는다.(응답값이 실행되지만, 결과는 아님) 이는 추상적인 트랜스포메이션만 지정한 상태이기 때문.
  ![ta](https://user-images.githubusercontent.com/60355414/84157104-47412980-aaa5-11ea-99e4-2f91ca65c9ec.PNG)
  1. 좁은 의존성 : 좁은 의존성을 가진 트랜스포메이션은 각 입력 파티션이 하나의 출력 파티션에만 영향을 미친다. 
