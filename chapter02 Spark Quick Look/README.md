@@ -51,8 +51,8 @@
  * 파티셔닝을 잘해야 테스크가 효율적으로 처리
  - - - 
  ### 2.7 트랜스포메이션
- > 스파크의 핵심 데이터 구조는 *불변성*을 가진다. 
- > 그렇다면 어떻게 사용? DataFrame의 변경을 원한다면 *transformation* 시켜 주어야함.
+ > 스파크의 핵심 데이터 구조는 *불변성*을 가진다.   
+ > 그렇다면 어떻게 사용? DataFrame의 변경을 원한다면 *transformation* 시켜 주어야함.      
  '''
  myRange = spark.range(1000).toDF("number")
  divisBy2 = myRange.where("number % 2 = 0 ")
