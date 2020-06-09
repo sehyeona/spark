@@ -84,4 +84,39 @@ divisBy2.count()
  > 스파크 Job의 생성과 진행상황을 모니터링 할때 사용된다. 
  - - -
  ### 2.10 종합 예제
- 
+ * DataFarme으로 파일 추가
+ ```
+ lightData2015 = spark.read.option('inferSchema','true')\
+ .option('header','true')\
+ .csv('file:///home/ubuntu/study/spark/data/flight-data/csv/2015-summary.csv')
+ ```
+ *스키마 추론* 기능과 *첫 로우를 header*로 사용하는 옵션을 추가
+ * 파티션 개수 설정
+ ```
+ spark.conf.set("spark.sql.shuffle.partitions","5")
+flightData2015.sort('count').take(2)
+ ```
+기본적으로 200개의 파티션이용, 5개로 제한 
+* 도착지별 그룹화, 카운트 총합을 이용한 정렬
+1. SQL이용
+```
+maxSql = spark.sql('''
+SELECT DEST_COUNTRY_NAME, sum(count) as destination_total
+FROM flight_data_2015
+GROUP BY DEST_COUNTRY_NAME
+ORDER BY sum(count) DESC
+LIMIT 5
+''')
+maxSql.show()
+```
+2. pyspark 내장 메서드 사용
+```
+from pyspark.sql.functions import desc
+
+flightData2015.groupBy('DEST_COUNTRY_NAME').sum('count')\
+.withColumnRenamed("sum(count)", "destinational_total")\
+.sort(desc('destinational_total')).limit(5).show()
+
+```
+실행계획은 트랜스포메이션의 지향성 비순환 그래프(DAG)이며 액션이 호출되면 결과를 만들어낸다.    
+그리고 지향성 비순환 그래프의 각 단계는 불변성을 가진 DataFrame을 생성 
