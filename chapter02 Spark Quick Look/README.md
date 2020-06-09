@@ -19,7 +19,6 @@
 
 ![스파크 아키텍처](https://user-images.githubusercontent.com/60355414/84154186-bf0d5500-aaa1-11ea-94fd-9266877deccc.PNG)
 
-<figure>
-<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.edureka.co%2Fblog%2Fspark-architecture%2F&psig=AOvVaw1ekTE0Fj8-tdx9hjYt-A5X&ust=1591780129488000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLiYsKCx9OkCFQAAAAAdAAAAABAR" width=500 height = 200/> 
-<figcaption>스파크 애플리케이션 아키텍처</figcaption>
-</figure>
+핵심 사항
+* 스파크는 사용 가능한 자원을 파악하기 위해 클러스터 매니저를 사용한다.
+* 드라이버 프로세스는 주어진 작업을 완료하기 위해 드라이버 프로그램의 명령을 익스큐어세어 실행할 책임이있다. 
