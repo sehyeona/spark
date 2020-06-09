@@ -8,8 +8,16 @@
 스파크가 연산에 사용할 클러스터는 스파크 스탠드얼론, 하둡 YARN, 메소스와 같은 클러스터 매니저에서 관리한다.   
 > 사용자는 클러스터 매니저에게 *스파크 애플리케이션* 을 제출하고, 클러스터 매니저는 작업을 클러스터에 적절히 분배
 #### 스파크 애플리케이션 = 드라이버프로세스 + 익스큐터 
-1. 드라이버 : 스파크의 심장과 같은 존재, 하나의 클러스터에 위치하며, 애플리케이션의 수명 주기동안 관련 모든 정보를 저장
-2. 익스큐터 : 드라이버 프로세스가 할당한 작업을 수행.   
+1. 드라이버 
+* 스파크의 심장과 같은 존재, 워커 노드들에 분산된 작업과 데이터를 관리
+* 보통 클러스터당 하나씩 존재하지만 여러개가 존재할 수도 있음.
+* 사용자 프로그램을 테스크로 변환하여 클러스터로 전송
+2. 익스큐터 
+* 드라이버 프로세스가 할당한 작업을 수행.   
+* 테스크 실행후 결과를 드라이버로 전송
+* 어플리케이션에서 사용하는 RDD를 저장하기 위한 메모리 공간 제공
+
+![스파크 아키텍처](https://user-images.githubusercontent.com/60355414/84154186-bf0d5500-aaa1-11ea-94fd-9266877deccc.PNG)
 
 <figure>
 <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.edureka.co%2Fblog%2Fspark-architecture%2F&psig=AOvVaw1ekTE0Fj8-tdx9hjYt-A5X&ust=1591780129488000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLiYsKCx9OkCFQAAAAAdAAAAABAR" width=500 height = 200/> 
