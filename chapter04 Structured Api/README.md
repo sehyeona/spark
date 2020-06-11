@@ -25,6 +25,7 @@ df = spark.range(100).toDF('number')
 df.select(df['number'] + 50)
 ```
 파이썬으로 작성된 표현식 => 탈리스트 엔진 => 스파크 데이터 타입으로 변형
+- - -
 #### DataFrmae VS Dataset
 ![dfds](https://user-images.githubusercontent.com/60355414/84340839-9178f680-abdc-11ea-91f3-acda2af2f65e.PNG)
 * Dataset
@@ -35,3 +36,31 @@ df.select(df['number'] + 50)
 Dataset은 row로 구성된것이 아닌, 명확하게 정의된 데이터 타입의 컬렉션이었는데, 이것을 로우 단위로 모아서 만든것이 DataFrame
 2. Row 타입은 스파크연산에 최적화된 인메모리 포맷의 구조 
 3. 인메모리 : 텅스텐엔진을 사용 모든 객체를 2진수로 변환후 메모리에서 직접 참조(훨씬 적은 메모리, 빠른 성능)
+- - -
+#### 컬럼
+1. 단순데이터 타입
+2. 복합데이터 타입
+3. null
+#### 로우 
+1. 로우는 데이터의 레코드
+2. SLQ, RDD, 데이터 소스에서 직접 얻거나 생성가능
+```
+spark.range(2).collect() 
+```
+Row 객체로 이루어진 배열을 반환한다.
+- - -
+### 4.2 스파크의 데이터 타입
+```
+from pyspark.sql.types import 
+```
+* 파이썬 데이터 타입 매핑
+![dt1](https://user-images.githubusercontent.com/60355414/84341578-6a232900-abde-11ea-8c06-817c02f87efc.PNG)
+![dt2](https://user-images.githubusercontent.com/60355414/84341579-6b545600-abde-11ea-8230-8ed9e428798f.PNG)
+http://bit.ly/2EdflXW
+- - - 
+### 4.3 구조적 API의 실행과정 
+1. DataFrame/ SQL/ Dataset을 이용한 코드작성
+2. 정상적인 코드라면 *논리적 실행계획* 생성
+3. 논리적 실행계획을 *물리적 실행계획* 으로 변경 및 *추가 최적화*
+4. 클러스터에서 물리적 실행계획 즉 *RDD처리* 실행
+![plab](https://user-images.githubusercontent.com/60355414/84341799-fcc3c800-abde-11ea-84b0-e46661392ea1.PNG)
